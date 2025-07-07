@@ -14,7 +14,7 @@ from scripts.estacion import mostrar_estacion_troje
 # CONFIGURACIONES GENERALES
 # =======================================
 st.set_page_config(layout="wide")
-API_KEY = "AIzaSyCgEdrbei9v01qNrVIqiSYrAXqfH-s0yEQ"
+API_KEY = os.getenv("GEMINI_API_KEY")
 modelo = configurar_gemini(API_KEY)
 
 # CSS personalizado
