@@ -8,7 +8,13 @@ from scripts.alerts import verificar_alerta
 from scripts.mapa import crear_mapa
 from scripts.gemini import configurar_gemini, consultar_gemini
 from scripts.plot import plot_forecast_module, comparar_variables
-from scripts.estacion import mostrar_estacion_troje  
+from scripts.estacion import mostrar_estacion_troje
+from PIL import Image
+from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
+
+
 
 # =======================================
 # CONFIGURACIONES GENERALES
@@ -59,6 +65,8 @@ pagina = st.sidebar.selectbox("Elige una opción", [
     "🏠 Nueva Estación el Troje",
     "📦 Ver materiales del proyecto",
     "🌐 Conexión del Sistema",
+    "📡 Otra forma de Comunicación",
+    "⚠️ Impacto y Deslizamientos",
     "🤖 Ideas de nuestro robot de IA"
 ])
 
@@ -81,7 +89,6 @@ if pagina == "🌊 Ver cómo corre el río":
     with col1:
         st.markdown("<h3 style='font-size: 28px;'>📍 Aquí están los sensores</h3>", unsafe_allow_html=True)
         components.html(crear_mapa(), height=500)
-
 
     with col2:
         st.markdown("<h3 style='font-size: 28px;'>📊 Tabla con lluvias y alertas</h3>", unsafe_allow_html=True)
@@ -191,6 +198,142 @@ elif pagina == "🌐 Conexión del Sistema":
             <li>🖥️ <strong>Servidor web remoto:</strong> Computadora o plataforma online que recibe los datos y permite verlos desde otro lugar, como El Troje.</li>
         </ul>
     </div>
+    """, unsafe_allow_html=True)
+# ---------------------------------------
+elif pagina == "📡 Otra forma de Comunicación":
+    st.markdown("<h1 style='font-size: 36px; text-align:center;'>📡 Otra forma de Comunicación</h1>", unsafe_allow_html=True)
+
+    # Mostrar imagen LoRaWAN
+    imagen_path = os.path.join("fotos", "Otra forma de comunicacion .png")
+    if os.path.exists(imagen_path):
+        st.image(imagen_path, caption="Esquema técnico: Comunicación mediante LoRaWAN como alternativa al 3G", width=900)
+    else:
+        st.warning("⚠️ No se encontró la imagen ilustrativa.")
+
+    # Explicación técnica para ingeniero
+    st.markdown("""
+    <div style='font-size: 19px; text-align: justify; padding-top: 20px;'>
+        Como alternativa a la red celular 3G, se plantea el uso del protocolo <strong>LoRaWAN</strong> para la transmisión de datos desde Rumihuco hacia una plataforma de visualización.
+        <br><br>
+        LoRaWAN (Long Range Wide Area Network) es una tecnología de comunicación inalámbrica de bajo consumo y largo alcance, ideal para entornos rurales donde la cobertura móvil es limitada o inexistente.
+        <br><br>
+        En esta arquitectura, la estación de monitoreo equipada con sensores ambientales envía los datos recolectados a través de una antena LoRa hacia una <strong>Gateway</strong> (puerta de enlace), 
+        que actúa como intermediaria entre los sensores y el servidor. Luego, esta gateway transmite los datos mediante conexión Ethernet o WiFi hacia la plataforma web ubicada en El Troje u otro sitio.
+        <br><br>
+        <strong>Ventajas principales:</strong>
+        <ul style="padding-left: 20px;">
+            <li>📶 Cobertura de varios kilómetros con muy bajo consumo energético.</li>
+            <li>🔋 Ideal para estaciones alimentadas por paneles solares.</li>
+            <li>🌍 No requiere infraestructura de red celular, reduciendo costos a largo plazo.</li>
+        </ul>
+        Esta solución es especialmente útil cuando se desea cubrir grandes extensiones rurales con una sola antena LoRa y múltiples sensores distribuidos.
+        <br><br>
+        <strong>Conclusión:</strong> LoRaWAN ofrece una solución robusta, sostenible y eficiente para sistemas de monitoreo ambiental en zonas remotas, representando una opción tecnológica viable frente al 3G.
+    </div>
+
+    <div style='margin-top: 30px; padding: 15px; border: 2px solid #0277BD; border-radius: 10px; background-color: #E3F2FD;'>
+        <h4 style='color: #01579B; font-size: 22px;'>📘 Glosario de términos técnicos</h4>
+        <ul style='font-size: 17px; color: #1B1B1B; padding-left: 20px;'>
+            <li>📡 <strong>LoRaWAN:</strong> Protocolo de comunicación inalámbrica de largo alcance y bajo consumo, usado en IoT.</li>
+            <li>🛰️ <strong>Gateway:</strong> Dispositivo que recibe datos de los sensores LoRa y los envía a internet vía Ethernet o WiFi.</li>
+            <li>🔁 <strong>Antena LoRa:</strong> Componente que permite emitir y recibir señales de radiofrecuencia a larga distancia.</li>
+            <li>📶 <strong>Red de largo alcance:</strong> Tecnología que cubre grandes áreas sin necesidad de torres celulares.</li>
+            <li>🌞 <strong>Estación solar:</strong> Sistema autónomo alimentado por energía solar, ideal para sensores remotos.</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+# ---------------------------------------
+elif pagina == "⚠️ Impacto y Deslizamientos":
+    st.markdown("<h1 style='text-align:center; font-size:36px;'>⚠️ Impacto y Deslizamientos - El Troje</h1>", unsafe_allow_html=True)
+
+    st.markdown("""
+    <p style='font-size:20px; text-align:justify;'>
+    En julio de 2025, fuertes lluvias provocaron un <strong>deslizamiento en la quebrada La Mica</strong>, dañado la infraestructura de conducción de agua que abastece la planta <strong>El Troje</strong>.
+    </p>
+    """, unsafe_allow_html=True)
+
+    # Infografía estilo tarjetas
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("""
+        <div style='background-color:#ffcccc; padding:15px; border-radius:10px; text-align:center; color:#000000;'>
+            <h4>📌 Parroquias Afectadas</h4>
+            <p style='font-size:15px;'>Argelia<br>Quitumbe<br>Turubamba<br>Guamaní<br>La Ecuatoriana<br>Chillogallo</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div style='background-color:#ccf2ff; padding:15px; border-radius:10px; text-align:center; color:#000000;'>
+            <h4>💧 Población Impactada</h4>
+            <p style='font-size:15px;'>≈350 000–400 000<br>habitantes sin agua potable</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+        <div style='background-color:#d6eaff; padding:15px; border-radius:10px; text-align:center; color:#000000;'>
+            <h4>🌊 Infraestructura Dañada</h4>
+            <p style='font-size:15px;'>≈350 m de tubería rota<br>Planta El Troje inoperativa</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Imagen ilustrativa
+    imagen = os.path.join("fotos", "Datos 2025.png")
+    if os.path.exists(imagen):
+        img = Image.open(imagen)
+        st.image(img, caption="📷 Daño en infraestructura tras el deslizamiento", width=800)
+    else:
+        st.warning("⚠️ Coloca aquí una imagen real o ilustrativa del deslizamiento")
+
+    # Explicación detallada (redactada profesionalmente)
+    st.markdown("""
+    <div style='font-size:18px; text-align:justify; margin-top:25px;'>
+    El colapso fue provocado por la saturación del suelo tras lluvias intensas, lo que ocasionó la ruptura de parte del sistema de conducción <strong>Mica–Quito Sur</strong>, dejando inoperativa la planta El Troje. 
+    Ante esta emergencia, se interrumpió el suministro de agua potable en seis parroquias del sur de Quito. 
+    Las autoridades activaron un plan de contingencia con tanqueros para abastecer hospitales, escuelas y comunidades prioritarias. 
+    El COE-M desplegó maquinaria y 70 operarios que lograron remover aproximadamente 180 000 m³ de escombros en un intento por restablecer el servicio.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Título tabla
+    st.markdown("<h4 style='margin-top:30px; color:#FFCC00;'>📊 Resumen del Impacto</h4>", unsafe_allow_html=True)
+
+    # Tabla visualmente separada
+    st.markdown("""
+    <style>
+    thead tr th {
+        background-color: #2c3e50;
+        color: white !important;
+    }
+    tbody tr td {
+        background-color: #f9f9f9;
+        color: black !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    df_incidentes = pd.DataFrame({
+        "Indicador": ["Parroquias sin agua", "Personas afectadas", "Longitud tubería dañada"],
+        "Valor": ["6", "≈350 000–400 000", "≈350 m"]
+    })
+
+    st.markdown('<div class="custom-table">', unsafe_allow_html=True)
+    st.table(df_incidentes)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Recomendaciones
+    st.markdown("""
+    <p style='font-size:18px; text-align:justify;'>
+    👉 Este evento revela la urgencia de contar con una <strong>estación de monitoreo ambiental</strong> en El Troje, que permita:
+    <ul>
+        <li>Anticipar cortes por fenómenos hidrológicos extremos.</li>
+        <li>Mejorar la planificación preventiva de emergencia.</li>
+        <li>Activar alertas tempranas para protección comunitaria.</li>
+    </ul>
+    </p>
     """, unsafe_allow_html=True)
 
 # ---------------------------------------
