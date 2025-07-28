@@ -3,6 +3,8 @@ import pandas as pd
 from scripts.load_data import cargar_datos_csv
 from scripts.mapa import crear_mapa
 import os
+import streamlit.components.v1 as components
+
 
 def show():
     st.markdown("<h1 style='font-size: 42px;'>🌊 Ver cómo corre el río</h1>", unsafe_allow_html=True)
@@ -20,7 +22,8 @@ def show():
     col1, col2 = st.columns([1, 1])
     with col1:
         st.markdown("<h3 style='font-size: 28px;'>📍 Aquí están los sensores</h3>", unsafe_allow_html=True)
-        st.components.v1.html(crear_mapa(), height=500)
+        components.html(crear_mapa(), height=500)
+
 
     with col2:
         st.markdown("<h3 style='font-size: 28px;'>📊 Tabla con lluvias y alertas</h3>", unsafe_allow_html=True)
