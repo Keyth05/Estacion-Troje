@@ -1,8 +1,15 @@
 import streamlit as st
+import os
 
 def show():
     st.markdown("## 🚨 Emergencia por Corte de Agua en Quito")
-    st.image("fotos/Desastre_Mica.jpg", caption="Lugar del colapso en El Troje", use_container_width=True)
+    current_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta vistas
+    image_path = os.path.abspath(os.path.join(current_dir, "..", "fotos", "Desastre_Mica.jpg"))
+
+    if os.path.exists(image_path):
+        st.image(image_path, caption="Lugar del colapso en El Troje", width=700)
+    else:
+        st.warning("⚠️ No se encontró la imagen 'Desastre_Mica.jpg' en la carpeta /fotos.")
 
     st.markdown("### 📍 ¿Qué pasó en El Troje y el sistema Mica?")
     st.markdown("Un gran deslizamiento provocado por lluvias intensas rompió el sistema de tuberías Mica–Quito Sur, dejando inoperativa la planta de El Troje.")
