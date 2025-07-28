@@ -39,7 +39,7 @@ st.markdown("""
 # Menú lateral de navegación
 # ===============================
 pagina = st.sidebar.selectbox("📌 Elige una opción", [
-    "🌊 Ver cómo corre el río",
+    "🌊 Estación meteorológica",
     "🔮 Adivinar el clima",
     "📊 Comparar cosas del clima",
     "🏠 Nueva Estación el Troje",
@@ -54,7 +54,7 @@ pagina = st.sidebar.selectbox("📌 Elige una opción", [
 # ===============================
 # Ruteo de vistas
 # ===============================
-if pagina == "🌊 Ver cómo corre el río":
+if pagina == "🌊 Estación meteorológica":
     river_monitor.show()
 
 elif pagina == "🔮 Adivinar el clima":

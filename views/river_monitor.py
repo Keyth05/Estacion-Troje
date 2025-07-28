@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 
 
 def show():
-    st.markdown("<h1 style='font-size: 42px;'>🌊 Ver cómo corre el río</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='font-size: 42px;'>🌊 Estación Meteorológica</h1>", unsafe_allow_html=True)
     st.markdown("<p style='font-size: 20px;'>Mira si hay poca o mucha agua, y si todo está bien o hay peligro.</p>", unsafe_allow_html=True)
 
     with st.expander("📘 ¿De qué trata esto?"):
