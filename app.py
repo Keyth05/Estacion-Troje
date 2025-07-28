@@ -1,4 +1,10 @@
 import streamlit as st
+# ===============================
+# Configuración general
+# ===============================
+st.set_page_config(page_title="Monitoreo del Río", layout="wide")
+
+
 
 # ===============================
 # Importar todas las vistas
@@ -16,10 +22,6 @@ from views import (
     gemini_ai  # ⚠️ Asegúrate de que el archivo se llame `gemini_ia.py`, no `gemini_ai.py`
 )
 
-# ===============================
-# Configuración general
-# ===============================
-st.set_page_config(page_title="Monitoreo del Río", layout="wide")
 
 # Estilo personalizado global
 st.markdown("""

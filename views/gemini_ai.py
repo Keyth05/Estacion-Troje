@@ -1,8 +1,17 @@
+import os
 import streamlit as st
 import re
 from scripts.gemini import configurar_gemini, consultar_gemini
+from dotenv import load_dotenv
 
 # ===========================
+# Cargar .env para obtener la API key
+# ===========================
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+# ===========================
+
+
 # Función para dar formato limpio a la respuesta generada
 # ===========================
 def formatear_respuesta(texto):
@@ -43,10 +52,10 @@ def formatear_respuesta(texto):
 # Página principal
 # ===========================
 def show():
-    st.set_page_config(layout="wide")
+    #st.set_page_config(layout="wide")
 
     # Configurar modelo Gemini con clave del .env
-    modelo = configurar_gemini()
+    modelo = configurar_gemini(api_key)
 
     st.markdown("<h1 style='text-align: center; font-size: 40px;'>🤖 Asistente de Inteligencia Artificial</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; font-size: 20px;'>Consulta sobre presupuesto, sensores o redes de comunicación</p>", unsafe_allow_html=True)
