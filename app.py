@@ -5,7 +5,6 @@ import streamlit as st
 st.set_page_config(page_title="Monitoreo del Río", layout="wide")
 
 
-
 # ===============================
 # Importar todas las vistas
 # ===============================
@@ -18,10 +17,11 @@ from views import (
     conexion,
     comunicacion,
     impacto,
+    comunicacionLoRa,
+    materialesLoRa,
     emergencia,
-    gemini_ai  # ⚠️ Asegúrate de que el archivo se llame `gemini_ia.py`, no `gemini_ai.py`
+    gemini_ai 
 )
-
 
 # Estilo personalizado global
 st.markdown("""
@@ -46,6 +46,8 @@ pagina = st.sidebar.selectbox("📌 Elige una opción", [
     "📦 Ver materiales del proyecto",
     "🌐 Conexión del Sistema",
     "📡 Otra forma de Comunicación",
+    "📡 Comunicación Lora",
+    "📦 Visualización de Materiales LoRaWAN",
     "⚠️ Impacto y Deslizamientos",
     "🧊 Zona de Emergencia: Quito sin Agua",
     "🤖 Ideas de nuestro robot de IA"
@@ -74,6 +76,12 @@ elif pagina == "🌐 Conexión del Sistema":
 
 elif pagina == "📡 Otra forma de Comunicación":
     comunicacion.show()
+
+elif pagina == "📡 Comunicación Lora":
+    comunicacionLoRa.show()
+
+elif pagina == "📦 Visualización de Materiales LoRaWAN":
+    materialesLoRa.show()
 
 elif pagina == "⚠️ Impacto y Deslizamientos":
     impacto.show()
