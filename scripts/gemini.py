@@ -10,7 +10,7 @@ def formatear_respuesta(texto):
 
 def configurar_gemini(api_key):
     configure(api_key=api_key)
-    modelo = GenerativeModel(model_name="models/gemini-pro")
+    modelo = GenerativeModel(model_name="models/gemini-1.5-flash")
   # O usa 'models/gemini-1.5-flash'
     return modelo
 
