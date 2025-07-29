@@ -6,7 +6,7 @@ def show():
     st.markdown("<p style='font-size: 20px;'>Aquí puedes ver cada componente con su imagen, cantidad y costo estimado por estación.</p>", unsafe_allow_html=True)
 
     materiales_lora = [
-        ("Sensor LoRa (temp/humedad/presión)", "Heltec LoRa-LoRAWAN.png", "1", "$68", "$72"),
+        ("Sensor LoRa (temp/humedad/presión)", "Heltec LoRa-LoRaWAN.png", "1", "$68", "$72"),
         ("Pluviómetro LoRa", "Pluviómetro LoRa.png", "1", "$50", "$50"),
         ("Sensor nivel río ultrasónico + módulo LoRa", "LORA LORAWAN-SENSOR de nivel de agua ultrasónico inalámbrico.png", "1", "$57", "$65"),
         ("Módulo LoRa TTGO/Heltec", "Módulo LoRa TTGO-Heltec.png", "1", "$20", "$20"),
